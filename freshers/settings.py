@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os
-from os import getenv
-from dotenv import load_dotenv
 from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,10 +82,9 @@ Local_database = False
 
 if not Local_database:
     # Load environment variables from the .env file
-    load_dotenv()
 
     # Parse the database URL from the environment variable
-    tmpPostgres = urlparse(getenv("DATABASE_URL"))
+    tmpPostgres = urlparse('postgresql://fresher-entry-pass_owner:fZ6Hnds5rCzW@ep-young-butterfly-a1cx36s3.ap-southeast-1.aws.neon.tech/fresher-entry-pass?sslmode=require')
 
 
     DATABASES = {
