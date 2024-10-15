@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'freshers.wsgi.app'
 
 # Add these at the top of your settings.py
 
-Local_database = True
+Local_database = False
 
 if not Local_database:
     # Load environment variables from the .env file
