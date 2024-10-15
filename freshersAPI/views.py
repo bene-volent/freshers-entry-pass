@@ -1,4 +1,3 @@
-from turtle import st
 from django.http import HttpRequest, HttpResponse
 from rest_framework.response import Response
 from rest_framework.request import Request
