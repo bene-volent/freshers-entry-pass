@@ -164,7 +164,7 @@ def mark_attendance(request: Request):
     Mark attendance for an entry pass.
     """
     pass_id = request.data.get('pass_id')
-    
+    print(pass_id)
     if not pass_id:
         return Response({'error': 'pass_id is required'}, status=status.HTTP_400_BAD_REQUEST)
     
@@ -180,4 +180,4 @@ def mark_attendance(request: Request):
     cache.delete(f'entry_pass_{pass_id}')
     cache.delete('entry_pass_list')
     
-    return Response({'updated': EntryPassSerializer(entry_pass).data}, status=status.HTTP_200_OK)
+    return Response({'updated': True}, status=status.HTTP_200_OK)
