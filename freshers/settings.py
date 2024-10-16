@@ -44,19 +44,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'freshersAPI',
-    'frontend',
+    "corsheaders",
 ]
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 ROOT_URLCONF = 'freshers.urls'
 
@@ -84,7 +88,7 @@ WSGI_APPLICATION = 'freshers.wsgi.app'
 
 # Add these at the top of your settings.py
 
-Local_database = False
+Local_database = True
 
 if not Local_database:
     # Load environment variables from the .env file
