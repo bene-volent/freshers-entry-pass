@@ -87,38 +87,43 @@ WSGI_APPLICATION = 'freshers.wsgi.app'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 # Add these at the top of your settings.py
-
-Local_database = True
-
-if not Local_database:
-    # Load environment variables from the .env file
-
-    # Parse the database URL from the environment variable
-    tmpPostgres = urlparse('postgresql://fresher-entry-pass_owner:fZ6Hnds5rCzW@ep-young-butterfly-a1cx36s3.ap-southeast-1.aws.neon.tech/fresher-entry-pass?sslmode=require')
-
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': tmpPostgres.path.replace('/', ''),
-            'USER': tmpPostgres.username,
-            'PASSWORD': tmpPostgres.password,
-            'HOST': tmpPostgres.hostname,
-            'PORT': 5432,
-        }
-    }
-
-else:
-    DATABASES = {
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'freshers-entry-pass',
-        'USER': 'benevolent',
-        'PASSWORD': 'Surjeet@123',
-        'HOST': 'localhost',
-        "PORT": '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
+# Local_database = True
+
+# if not Local_database:
+#     # Load environment variables from the .env file
+
+#     # Parse the database URL from the environment variable
+#     tmpPostgres = urlparse('postgresql://fresher-entry-pass_owner:fZ6Hnds5rCzW@ep-young-butterfly-a1cx36s3.ap-southeast-1.aws.neon.tech/fresher-entry-pass?sslmode=require')
+
+
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': tmpPostgres.path.replace('/', ''),
+#             'USER': tmpPostgres.username,
+#             'PASSWORD': tmpPostgres.password,
+#             'HOST': tmpPostgres.hostname,
+#             'PORT': 5432,
+#         }
+#     }
+
+# else:
+#     DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'freshers-entry-pass',
+#         'USER': 'benevolent',
+#         'PASSWORD': 'Surjeet@123',
+#         'HOST': 'localhost',
+#         "PORT": '5432',
+#     }
+# }
 
 
 REST_FRAMEWORK = {

@@ -4,7 +4,7 @@ from django.db import models
 from django.db import models
 
 class EntryPass(models.Model):
-    pass_id = models.CharField(primary_key=True)
+    pass_id = models.CharField(primary_key=True,max_length=100)
     name = models.CharField(max_length=100)
     roll_no = models.CharField(max_length=10)
     attended = models.BooleanField(default=False)
